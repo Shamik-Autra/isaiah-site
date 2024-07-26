@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isaiah's Professional Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --text-color: #000;
+            --header-footer-bg: #2563eb;
+            --toggle-bg: #000;
+            --toggle-text: #fff;
+        }
+        .dark-mode {
+            --bg-color: #1a1a1a;
+            --text-color: #fff;
+            --header-footer-bg: #333;
+            --toggle-bg: #fff;
+            --toggle-text: #000;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .bg-blue-600 {
+            background-color: var(--header-footer-bg);
+        }
+        .toggle-container {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            display: flex;
+            align-items: center;
+            background-color: var(--toggle-bg);
+            padding: 0.5rem 1rem;
+            border-radius: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .toggle-container input {
+            display: none;
+        }
+        .toggle-container label {
+            margin-left: 0.5rem;
+            color: var(--toggle-text);
+        }
+        .toggle-switch {
+            width: 50px;
+            height: 25px;
+            background: var(--toggle-text);
+            border-radius: 50px;
+            position: relative;
+            transition: background 0.3s;
+        }
+        .toggle-switch::before {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background: var(--toggle-bg);
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 3px;
+            transform: translateY(-50%);
+            transition: left 0.3s;
+        }
+        input:checked + .toggle-switch::before {
+            left: 27px;
+        }
+        .dark-mode .bg-white {
+            background-color: #2c2c2c; /* Darker background for sections in dark mode */
+        }
+        .dark-mode .text-blue-600 {
+            color: #3490dc; /* Slightly lighter blue for links in dark mode */
+        }
+        .todo-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .todo-item button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 0.2rem 0.5rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .dark-mode input, .dark-mode textarea {
+            background-color: #333;
+            color: #fff;
+            border-color: #444;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+    <!-- Dark Mode Toggle Bar -->
+    <div class="toggle-container">
+        <input type="checkbox" id="theme-toggle" />
+        <div class="toggle-switch"></div>
+        <label for="theme-toggle">Dark Mode</label>
+    </div>
+    
+    <!-- Header -->
+    <header class="bg-blue-600 text-white py-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <h1 class="text-3xl font-bold">Isaiah's Portfolio</h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="#about" class="hover:underline">About Me</a></li>
+                    <li><a href="#sites" class="hover:underline">Sites I Made at AUTRA</a></li>
+                    <li><a href="#hobbies" class="hover:underline">Hobbies</a></li>
+                    <li><a href="#projects" class="hover:underline">Projects</a></li>
+                    <li><a href="#contact" class="hover:underline">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="container mx-auto flex-grow px-4 py-8">
+        <!-- Biography Section -->
+        <section id="about" class="mb-8">
+            <div class="bg-white p-6 rounded-lg shadow-lg dark:bg-gray-800">
+                <h2 class="text-2xl font-bold mb-4">About Me</h2>
+                <div class="flex items-center">
+                    <img src="logo" alt="Profile Picture" class="w-32 h-32 rounded-full mr-4">
+                    <p>Hello, my name is Isaiah. I am 12 years old and going into 7th grade.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sites I Made at AUTRA Section -->
+        <section id="sites" class="mb-8">
+            <div class="bg-white p-6 rounded-lg shadow-lg dark:bg-gray-800">
+                <h2 class="text-2xl font-bold mb-4">Sites I Made at AUTRA</h2>
+                <p>Check out my restaurant page called <a href="bedont.html" class="text-blue-600 hover:underline">Bedont's Bistro</a>.</p>
+            </div>
+        </section>
+
+        <!-- Hobbies Section -->
+        <section id="hobbies" class="mb-8">
+            <div class="bg-white p-6 rounded-lg shadow-lg dark:bg-gray-800">
+                <h2 class="text-2xl font-bold mb-4">Hobbies</h2>
+                <p>VR/PS</p>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="mb-8">
+            <div class="bg-white p-6 rounded-lg shadow-lg dark:bg-gray-800">
+                <h2 class="text-2xl font-bold mb-4">Projects</h2>
+                <p>A big tree house out of Legos.</p>
+            </div>
+        </section>
+
+        <!-- To-Do List Section -->
+        <section id="todo" class="mb-8">
+            <div class="bg-white p-6 rounded-lg shadow-lg dark:bg-gray-800">
+                <h2 class="text-2xl font-bold mb-4">To-Do List</h2>
+                <input type="text" id="new-task" class="w-full p-2 border rounded-md mb-4 dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="Add a new task" />
+                <button onclick="addTask()" class="bg-blue-600 text-white px-4 py-2 rounded-md mb-4">Add Task</button>
+                <ul id="task-list" class="list-disc list-inside">
+                    <li class="todo-item">Finish the Lego tree house project. <button onclick="removeTask(this)">Remove</button></li>
+                    <li class="todo-item">Learn a new programming language. <button onclick="removeTask(this)">Remove</button></li>
+                    <li class="todo-item">Create a new game in VR. <button onclick="removeTask(this)">Remove</button></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="mb-8">
+            <div class="bg-white p-6 rounded-lg shadow-lg dark:bg-gray-800">
+                <h2 class="text-2xl font-bold mb-4">Contact</h2>
+                <form action="#" method="POST" class="space-y-4">
+                    <div>
+                        <label for="name" class="block text-sm font-semibold">Name</label>
+                        <input type="text" id="name" name="name" class="w-full p-2 border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-semibold">Email</label>
+                        <input type="email" id="email" name="email" class="w-full p-2 border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-semibold">Message</label>
+                        <textarea id="message" name="message" rows="4" class="w-full p-2 border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"></textarea>
+                    </div>
+                    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md">Submit</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white py-4 shadow-md">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 Isaiah's Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Dark Mode Toggle and To-Do List -->
+    <script>
+        const toggleInput = document.getElementById('theme-toggle');
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        const currentTheme = localStorage.getItem('theme') || (prefersDarkScheme.matches ? 'dark' : 'light');
+
+        if (currentTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+            toggleInput.checked = true;
+        }
+
+        toggleInput.addEventListener('change', () => {
+            document.body.classList.toggle('dark-mode');
+            const theme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+            localStorage.setItem('theme', theme);
+        });
+
+        function addTask() {
+            const taskList = document.getElementById('task-list');
+            const newTaskInput = document.getElementById('new-task');
+            const newTaskText = newTaskInput.value.trim();
+            if (newTaskText !== '') {
+                const newTaskItem = document.createElement('li');
+                newTaskItem.classList.add('todo-item');
+                newTaskItem.innerHTML = `${newTaskText} <button onclick="removeTask(this)">Remove</button>`;
+                taskList.appendChild(newTaskItem);
+                newTaskInput.value = '';
+            }
+        }
+
+        function removeTask(button) {
+            const taskItem = button.parentElement;
+            taskItem.remove();
+        }
+    </script>
+</body>
+</html>
